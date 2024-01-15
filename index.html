@@ -73,22 +73,21 @@
             </div>
             <div class="form-group">
 
-                    <label for="exampleInputEmail1" class="col-md-2 control-label">Result</label>
+                <label for="exampleInputEmail1" class="col-md-2 control-label">Result</label>
                 <div class="col-md-10">
                     <textarea id="lblResult" class="form-control" rows="10"></textarea>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="col-sm-offset-2 control-label"
+                    id="lblCopyTocClipboard"></label>
             </div>
         </div>
     </div>
 
     <script>
         $("#btnClear").click(function () {
-            $('#question').val('')
-            $('#opt1').val('')
-            $('#opt2').val('')
-            $('#opt3').val('')
-            $('#opt4').val('')
-            $('#lblResult').val('')
+            $('#question,#opt1,#opt2,#opt3,#opt4,#lblResult,#lblCopyTocClipboard').val('');
         });
 
         $("#btn1and2").click(function () {
@@ -103,22 +102,26 @@
             result += "\n1. True \n2. False";
             $('#lblResult').val(result);
             navigator.clipboard.writeText(result);
+            CopyTocClipboard();
         });
 
         $("#btnGenerate").click(function () {
             let result = $('#question').val();
-            result += "\n1. "+ $('#opt1').val();
-            result += "\n2. "+ $('#opt2').val();
-            result += "\n3. "+ $('#opt3').val();
-            result += "\n4. "+ $('#opt4').val();
+            result += "\n1. " + $('#opt1').val();
+            result += "\n2. " + $('#opt2').val();
+            result += "\n3. " + $('#opt3').val();
+            result += "\n4. " + $('#opt4').val();
             $('#lblResult').val(result);
             navigator.clipboard.writeText(result);
+            CopyTocClipboard();
         });
 
         $("#btnClear").click(function () {
 
         });
-
+        function CopyTocClipboard() {
+            $('#lblCopyTocClipboard').text('Copied to clipboard!!!');
+        }
     </script>
 </body>
 
