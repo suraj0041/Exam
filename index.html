@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="container-fluid">
+        <div class="form-horizontal" style="margin-top: 50px;">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Question</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="question">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Option 1</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="opt1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Option 2</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="opt2">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Option 3</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="opt3">
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" id="btn1and2" class="btn btn-default">1 and 2</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Option 4</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="opt4">
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" id="btnNTA" class="btn btn-default">None of the above</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="button" id="btnGenerate" class="btn btn-default">Generate</button>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" id="btnTrueFalse" class="btn btn-default">True/False</button>
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" id="btnClear" class="btn btn-default">Clear</button>
+                </div>
+            </div>
+            <div class="form-group">
+
+                    <label for="exampleInputEmail1" class="col-md-2 control-label">Result</label>
+                <div class="col-md-10">
+                    <textarea id="lblResult" class="form-control" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#btnClear").click(function () {
+            $('#question').val('')
+            $('#opt1').val('')
+            $('#opt2').val('')
+            $('#opt3').val('')
+            $('#opt4').val('')
+            $('#lblResult').val('')
+        });
+
+        $("#btn1and2").click(function () {
+            $('#opt3').val('1 and 2');
+        });
+        $("#btnNTA").click(function () {
+            $('#opt4').val('None of the above')
+        });
+
+        $("#btnTrueFalse").click(function () {
+            let result = $('#question').val();
+            result += "\n1. True \n2. False";
+            $('#lblResult').val(result);
+            navigator.clipboard.writeText(result);
+        });
+
+        $("#btnGenerate").click(function () {
+            let result = $('#question').val();
+            result += "\n1. "+ $('#opt1').val();
+            result += "\n2. "+ $('#opt2').val();
+            result += "\n3. "+ $('#opt3').val();
+            result += "\n4. "+ $('#opt4').val();
+            $('#lblResult').val(result);
+            navigator.clipboard.writeText(result);
+        });
+
+        $("#btnClear").click(function () {
+
+        });
+
+    </script>
+</body>
+
+</html>
